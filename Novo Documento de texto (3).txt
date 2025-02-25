@@ -1,0 +1,59 @@
+// Função de contagem regressiva
+const countdownDate = new Date("March 8, 2025 16:00:00 UTC").getTime();
+const timerElement = document.getElementById('timer');
+
+function updateCountdown() {
+    const now = new Date().getTime();
+    const distance = countdownDate - now;
+
+    if (distance <= 0) {
+        timerElement.innerHTML = "A pré-venda terminou!";
+        clearInterval(countdown);
+        return;
+    }
+
+    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+    timerElement.innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s`;
+}
+
+const countdown = setInterval(updateCountdown, 1000);
+
+// Função para conectar a carteira e realizar a compra
+async function connectWallet() {
+    if (window.solana && window.solana.isPhantom) {
+        try {
+            await window.solana.connect();
+            console.log("Carteira conectada:", window.solana.publicKey.toString());
+            return window.solana;
+        } catch (err) {
+            console.error("Erro ao conectar com a carteira:", err);
+            alert("Erro ao conectar com a carteira!");
+        }
+    } else {
+        alert("Instale a carteira Phantom para continuar.");
+    }
+}
+
+async function makePurchase(amount) {
+    const wallet = await connectWallet();
+    const connection = new solanaWeb3.Connection(solanaWeb3.clusterApiUrl('mainnet-beta'), 'confirmed');
+    
+    // Defina o endereço da sua carteira Solana
+    const recipient = new solanaWeb3.PublicKey("D1oh68EE5JQPDYTmuaxrhmU5mMtQAHgg9J3gQPUvLJJs");
+    
+    // Lógica para criar a transação de pagamento, aqui você configuraria o envio de USDC para a sua carteira
+    // Adicione a lógica de envio de tokens de acordo com o seu contrato Solana
+    
+    alert(`Compra de ${amount} USDC realizada com sucesso!`);
+}
+
+document.getElementById('purchase-form').addEventListener('submit', function (event) {
+    event.preventDefault();
+    const amount = document.getElementById('amount').value;
+    makePurchase(amount);
+});
+

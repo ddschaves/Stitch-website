@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Pré-Venda $Stitch</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/@solana/web3.js"></script> <!-- Solana Web3.js -->
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="logo">
+            <img src="stitch-logo.png" alt="Logo $Stitch">
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#buy">Compre Agora</a></li>
+                <li><a href="#faq">FAQ</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Contagem Regressiva -->
+    <section class="countdown">
+        <h2>Contagem Regressiva para o Fim da Pré-Venda</h2>
+        <div id="timer"></div>
+    </section>
+
+    <!-- Compra de Tokens -->
+    <section class="buy" id="buy">
+        <h3>Compre seus tokens $Stitch agora!</h3>
+        <p>Preço por token: 0.0000001 USDC</p>
+        
+        <!-- Formulário de compra -->
+        <form id="purchase-form">
+            <label for="amount">Quantos tokens você quer comprar?</label>
+            <input type="number" id="amount" placeholder="Quantidade em USDC" required>
+            
+            <button type="submit">Comprar</button>
+        </form>
+        
+        <p id="purchase-message"></p>
+    </section>
+
+    <!-- FAQ -->
+    <section class="faq" id="faq">
+        <h3>Perguntas Frequentes</h3>
+        <ul>
+            <li><strong>Como comprar os tokens?</strong> Conecte sua carteira Solana, escolha o valor em USDC e clique em "Comprar".</li>
+            <li><strong>Como receberei meus tokens?</strong> Após a compra, seus tokens $Stitch serão enviados diretamente para sua carteira Solana.</li>
+            <li><strong>Qual o preço do token?</strong> Cada $Stitch custa 0.0000001 USDC.</li>
+            <li><strong>Qual o prazo da pré-venda?</strong> A pré-venda vai até o dia 8 de março às 16h (UTC).</li>
+        </ul>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 $Stitch. Todos os direitos reservados.</p>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="script.js"></script> <!-- JavaScript para funcionalidades -->
+</body>
+</html>
+
+
+
